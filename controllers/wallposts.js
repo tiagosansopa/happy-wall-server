@@ -1,3 +1,4 @@
+const moment = require("moment");
 const Wallposts = require("../models/wallposts");
 
 exports.createWallpost = (req, res) => {
@@ -32,12 +33,16 @@ exports.createWallpost = (req, res) => {
 exports.getAllWallposts = (req, res) => {
   Wallposts.find()
     .populate("creator", "name")
-    .sort({ createdAt: -1 })
+
     .exec()
     .then((wallposts) => {
+      const formattedWallposts = wallposts.map((post) => ({
+        ...post._doc,
+        createdAt: moment(post.createdAt).fromNow(),
+      }));
       return res.status(200).json({
         message: "All wallposts retrieved successfully",
-        wallposts,
+        wallposts: formattedWallposts,
       });
     })
     .catch((error) => {

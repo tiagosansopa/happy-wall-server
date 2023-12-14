@@ -21,10 +21,10 @@ exports.createUser = (req, res) => {
 
       newUser
         .save()
-        .then((user) => {
+        .then((newUser) => {
           return res.status(201).json({
             message: "User created",
-            user,
+            user: { name: newUser.name, id: newUser._id },
           });
         })
         .catch((error) => {
