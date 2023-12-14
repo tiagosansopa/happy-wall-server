@@ -21,7 +21,7 @@ const wallPostsRoutes = require("./routes/wallposts");
 
 //app  middlewares
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({ origin: process.env.CLIENT }));
 
 // Serve Swagger documentation
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
