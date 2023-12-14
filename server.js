@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const swaggerUi = require("swagger-ui-express");
 const specs = require("./swagger");
@@ -20,6 +21,7 @@ const wallPostsRoutes = require("./routes/wallposts");
 
 //app  middlewares
 app.use(cors());
+app.use(bodyParser.json());
 
 // Serve Swagger documentation
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));

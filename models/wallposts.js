@@ -8,7 +8,7 @@ const wallpostsSchema = new mongoose.Schema(
     message: {
       type: String,
     },
-    sender: { type: ObjectId, ref: "Users" },
+    creator: { type: ObjectId, ref: "Users" },
   },
   { timestamps: true }
 );
