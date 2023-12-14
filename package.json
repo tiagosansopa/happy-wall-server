@@ -4,7 +4,7 @@
   "description": "this is the happy wall app server",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "author": "uim",
   "license": "ISC",
@@ -21,8 +21,12 @@
     "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
+    "chai": "^4.3.10",
+    "chai-http": "^4.4.0",
     "install": "^0.13.0",
+    "mocha": "^10.2.0",
     "nodemon": "^3.0.2",
-    "npm": "^10.2.5"
+    "npm": "^10.2.5",
+    "sinon": "^17.0.1"
   }
 }
